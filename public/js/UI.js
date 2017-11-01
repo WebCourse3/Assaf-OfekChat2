@@ -10,12 +10,7 @@ class UI {
 	}
 
 	static toUIObject(ui) {
-		return new UI(ui._color, ui._bold, ui._italic, ui._underlin, ui._animate);
-	}
-
-	static helpMessage() {
-		return $('<li>')
-			.text("/help command was typed.");
+		return new UI(ui._color, ui._bold, ui._italic, ui._underline, ui._animate);
 	}
 
 	get color() {
