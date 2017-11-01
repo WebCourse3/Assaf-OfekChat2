@@ -6,6 +6,12 @@
 body {
 	font: 13px Helvetica, Arial;
 }
+
+
+#commander {
+	height: 20%;
+}
+
 .panel-default {
 	padding: 3px;
 	position: fixed;
