@@ -1,4 +1,3 @@
-//for pull request
 class User {
 	constructor(name) {
 		this.name = name;

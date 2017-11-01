@@ -1,4 +1,3 @@
-//for pull request
 $(function () {
 	var socket = io();
 	var user = new User();
