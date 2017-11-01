@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "animate.css": "^3.5.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.16.2",
+    "jquery": "^3.2.1",
     "socket.io": "^2.0.4",
     "socketio": "^1.0.0"
   }
