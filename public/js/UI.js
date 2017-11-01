@@ -1,3 +1,4 @@
+/**/
 class UI {
 	constructor(_color, _bold, _italic, _underline, _animate) {
 		_color = _color || "black";
