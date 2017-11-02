@@ -1,4 +1,3 @@
-/**/
 class UI {
 	constructor(_color, _bold, _italic, _underline, _animate) {
 		_color = _color || "black";
@@ -18,7 +17,7 @@ class UI {
 	}
 
 	set color(value) {
-		this._color = (isHex(value) ? "#" : "") + value;
+		this._color = (isHexColor(value) ? "#" : "") + value;
 	}
 
 	get bold() {
@@ -55,7 +54,6 @@ class UI {
 }
 
 UI.prototype.createMessage = (function(msg, userName) {
-
 		return $('<li>')
 			.animateCss(this.animate)
 			.text(userName+": ").append
@@ -71,23 +69,19 @@ UI.prototype.createMessage = (function(msg, userName) {
 });
 
 UI.prototype.decypt = (function(msg) {
-	var sep = msg.split(' ');
-	if (sep[0] === "color") {
-		this.color = sep[1];
-	} else if (sep[0] === "bold") {
-		this.bold = !this.bold;
-	} else if (sep[0] === "italic") {
-		this.italic = !this.italic;
-	} else if (sep[0] === "underline") {
-		this.underline = !this.underline;
-	} else if (sep[0] === "animate") {
-		this.animate = sep[1];
+	let splitMessage = msg.split(' ');
+	let command = splitMessage[0];
+	let parameter = splitMessage[1];
+
+	if (command === "color" || command === 'animate'){
+		this[command] = parameter;
+	}
+	else {
+		this[command]  = !this[command];
 	}
 });
 
-
-function isHex(h) {
-	var a = parseInt(h,16);
-	return (a.toString(16) === h) && h.length === 6
+function isHexColor(hex) {
+	let integerHex = parseInt(hex,16);
+	return (integerHex.toString(16) === hex) && hex.length === 6
 }
-

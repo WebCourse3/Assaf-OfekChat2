@@ -1,4 +1,3 @@
-/**/
 $(function () {
 	var socket = io();
 	var user = new User();
@@ -17,19 +16,19 @@ $(function () {
 		 if (msg.startsWith('/')) {
 			user.getUI().decypt(msg.substring(1));
 		} else {
-			appendMessage(msg, userName, user.getUI());
+			 chatMessage(msg, userName, user.getUI());
 			socket.emit('chat message', msg, userName, user.getUI());
 		}
 		$('#m').val('');
 		return false;
 	});
 
-	socket.on('chat message', function(msg, userName, ui){
-		appendMessage(msg, userName, UI.toUIObject(ui));
+	socket.on('chat message', (msg, userName, ui) => {
+		chatMessage(msg, userName, UI.toUIObject(ui));
 	});
 });
 
 
-function appendMessage(msg, userName, ui) {
+function chatMessage(msg, userName, ui) {
 	$('#messages').prepend(ui.createMessage(msg,userName));
 }
